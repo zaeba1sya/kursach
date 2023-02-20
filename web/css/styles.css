@@ -1,0 +1,131 @@
+.navbar-dark {
+    padding: 1.95rem 0 !important;
+    background-color: #101010 !important;
+    border-bottom: 1px solid #282a32;
+}
+
+.my-footer {
+    background-color: #101010 !important;
+    border-top: 1px solid #282a32;
+}
+
+.my-nav-item {
+    cursor: pointer;
+    letter-spacing: .07em;
+    color: #a3a3a3;
+    font-size: 20px;
+}
+
+.navbar-nav {
+    width: 100% !important;
+}
+
+.my-left-m {
+    margin-left: auto;
+}
+
+.my-mx {
+    margin: 0 1rem;
+}
+
+.index-background {
+    background-image: url("../images/index-backgif.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 50rem;
+    padding: 15% 25%;
+}
+
+.my-container{
+    padding-top: 121px;
+}
+
+.jbtrn-text {
+    margin: auto;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 15px;
+    color: rgb(219, 219, 219);
+    background-color: #101010ce;
+}
+
+.my-text-block-index-one {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nft-index {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+}
+
+.nft-one {
+    background-image: url("../images/nfts/KITH_web.gif");
+}
+
+.nft-two {
+    background-image: url("../images/nfts/dMqxHmPPA8fd.gif");
+}
+
+.nft-three {
+    background-image: url("../images/nfts/doge.gif");
+}
+
+.text-heading {
+    font-size: 20px;
+    text-align: center;
+    color: rgb(219, 219, 219);
+}
+
+.heading {
+    text-align: center;
+    color: rgb(219, 219, 219);
+    margin: 3rem 0;
+    text-decoration: wavy;
+}
+
+.examples-index {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 10rem;
+}
+
+.description-index {
+    padding: 0 15%;
+}
+
+.nft-description {
+    font-size: 20px;
+    text-align: center;
+    color: rgb(219, 219, 219);
+}
+
+.login-reg-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: rgb(219, 219, 219);
+}
+
+.login-reg-form {
+    width: 60%;
+    padding: 10rem;
+}
+
+.login-reg-sidebar {
+    background-image: url("../images/login-reg-side.jpg");
+    height: 48.78rem;
+    width: 40%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
