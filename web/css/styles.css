@@ -1,3 +1,8 @@
+a {
+    text-decoration: none;
+}
+
+
 .navbar-dark {
     padding: 1.95rem 0 !important;
     background-color: #101010 !important;
@@ -103,6 +108,10 @@
     padding: 0 15%;
 }
 
+.my-market-index {
+    padding: 1rem 15%;
+}
+
 .nft-description {
     font-size: 20px;
     text-align: center;
@@ -118,7 +127,7 @@
 
 .login-reg-form {
     width: 60%;
-    padding: 10rem;
+    padding: 5rem 10rem;
 }
 
 .login-reg-sidebar {
@@ -128,4 +137,140 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.nft-wrapper {
+    width: 100%;
+    border: 2px solid hsla(0, 0%, 100%, .1);
+    border-radius: 18px;
+    margin-bottom: 2rem;
+    max-height: 425px;
+    overflow: hidden;
+    transition: all 1s;
+}
+
+.nft-wrapper-profile {
+    width: 100%;
+    border: 2px solid hsla(0, 0%, 100%, .1);
+    border-radius: 18px;
+    margin-bottom: 2rem;
+    max-height: 425px;
+    overflow: hidden;
+}
+
+.nft-wrapper:hover .nft-btn-show-more {
+    display: block;
+}
+
+.nft-wrapper:hover .nft-image {
+    height: 13rem !important;
+}
+
+.nft-wrapper:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.nft-image {
+    min-width: 20rem;
+    height: 15rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+    transition: all 1s;
+}
+
+.market-items-wrapper {
+    display: grid;
+    grid-gap: 30px 25px;
+    gap: 10px 25px;
+    grid-template-columns: repeat(4,1fr);
+    width: 100%;
+}
+
+.profile-items-wrapper {
+    padding: 2rem 15%;
+    display: grid;
+    grid-gap: 30px 25px;
+    gap: 10px 25px;
+    grid-template-columns: repeat(4,1fr);
+    width: 100%;
+}
+
+.nft-content {
+    padding: 1rem;
+}
+
+.nft-heading {
+    color: rgb(219, 219, 219);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.nft-item-description {
+    color: rgb(219, 219, 219);
+    display: flex;
+    align-items: center;
+}
+
+.nft-btn-show-more {
+    display: none;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    width: 100%;
+    letter-spacing: .07em;
+    font-size: 20px;
+    transition: all 2s;
+}
+
+.nft-view-text {
+    text-align: center;
+}
+
+.nft-view, .table-striped > tbody > tr:nth-of-type(odd) > * {
+    color: #a3a3a3 !important;
+}
+
+.nft-view {
+    padding: 0 15%;
+}
+
+.my-item {
+    width: 100%;
+}
+
+.amount {
+    margin-left: auto;
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 867px) {
+    .login-reg-sidebar {
+        display: none;
+    }
+
+    .login-reg-form {
+        width: 100%;
+        padding: 5rem 2rem;
+    }
+}
+
+@media screen and (max-width: 1639px) {
+    .market-items-wrapper, .profile-items-wrapper {
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .market-items-wrapper, .profile-items-wrapper {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media screen and (max-width: 955px) {
+    .market-items-wrapper, .profile-items-wrapper {
+        grid-template-columns: repeat(1,1fr);
+    }
 }

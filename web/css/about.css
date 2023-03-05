@@ -1,0 +1,61 @@
+.my-site-about {
+    background-image: url("../images/about-background.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 81vh;
+}
+
+.container-about {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.841);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+}
+
+.dev-container-wrapper {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    width: 300px;
+    height: 390px;
+    text-align: center;
+    margin: auto 0;
+    background-color: rgba(0, 0, 0, 0.744);
+}
+
+.dev-one, .dev-two, .dev-three {
+    width: 300px;
+    height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.heading-dev {
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.name-dev {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.dev-one {
+    background-image: url("../images/devs/1652900486340_5cd6cxbsasxrdxr7p96zx6trs001cwcs_600x600.png");
+}
+
+.dev-two {
+    background-image: url("../images/devs/1670103606933_q3r75ozp2wjw6jgkbbw8gdjjh5o2yk4y_400x400.png");
+}
+
+.dev-three {
+    background-image: url("../images/devs/1676999046095_xg6wxhv32rpn3hnfbgrwzir9z00ubdir_400x400.png");
+}

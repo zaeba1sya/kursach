@@ -1,0 +1,39 @@
+.nft-view-wrapper {
+    width: 30rem;
+    height: 30rem; 
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 7rem;
+}
+
+.nft-view-text {
+    text-align: center;
+}
+
+.view-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff;
+    width: 100%;
+}
+
+.nft-view-about, .nft-view-owner, .view-amount, .view-price {
+    font-size: 1.7rem;
+}
+
+.nft-view-about {
+    margin-top: 2rem;
+}
+
+.view-buy-button {
+    width: 100%;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    font-weight: 500;
+    font-size: 20px;
+    padding: .5rem 0;
+}

@@ -41,29 +41,29 @@ $this->registerLinkTag(['rel' => "stylesheet", 'href' => "https://cdnjs.cloudfla
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index'], "options" => ['class' => "my-nav-item my-mx"]],
-            ['label' => 'Market', 'url' => ['/market'], "options" => ['class' => "my-nav-item my-mx"]],
-            ['label' => 'About', 'url' => ['/site/about'], "options" => ['class' => "my-nav-item my-mx"]],
+            ['label' => Yii::t("app", "Home"), 'url' => ['/site/index'], "options" => ['class' => "my-nav-item my-mx"]],
+            ['label' => Yii::t("app", "Market"), 'url' => ['/market'], "options" => ['class' => "my-nav-item my-mx"]],
+            ['label' => Yii::t("app", "About"), 'url' => ['/site/about'], "options" => ['class' => "my-nav-item my-mx"]],
             !Yii::$app->user->isGuest && !Yii::$app->user->identity->isAdmin
                 ? '<li class="nav-item my-nav-item my-nav-item my-left-m">
-                <a class="nav-link btn btn-link logout" href="/profile">Profile('
+                <a class="nav-link btn btn-link logout" href="/profile">'.Yii::t("app", "Profile").'('
                 .substr(Profile::getProfileData(Yii::$app->user->id)->wallet, 0, 5)
                 ."..."
                 .substr(Profile::getProfileData(Yii::$app->user->id)->wallet, 37, 5)
                 .')</a></li>'
                 : "",
             !Yii::$app->user->isGuest && Yii::$app->user->identity->isAdmin
-                ? ['label' => 'Admin Panel', 'url' => ['/admin'], "options" => ['class' => "my-nav-item my-left-m"]]
+                ? ['label' => Yii::t("app", "Admin Panel"), 'url' => ['/admin'], "options" => ['class' => "my-nav-item my-left-m"]]
                 : "",
             Yii::$app->user->isGuest
-                ? ['label' => 'Registration', 'url' => ['/site/signup'], "options" => ['class' => "my-nav-item my-left-m"]]
+                ? ['label' => Yii::t("app", "Registration"), 'url' => ['/site/signup'], "options" => ['class' => "my-nav-item my-left-m"]]
                 : '',
             Yii::$app->user->isGuest
-                ? ['label' => 'Login', 'url' => ['/site/login'], "options" => ['class' => "my-nav-item"]]
+                ? ['label' => Yii::t("app", "Sign In"), 'url' => ['/site/login'], "options" => ['class' => "my-nav-item"]]
                 : '<li class="nav-item my-nav-item">'
                     . Html::beginForm(['/site/logout'])
                     . Html::submitButton(
-                        'Logout',
+                        Yii::t("app", "Logout"),
                         ['class' => 'nav-link btn btn-link logout my-nav-item']
                     )
                     . Html::endForm()

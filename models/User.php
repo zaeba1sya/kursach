@@ -62,20 +62,6 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         ];
     }
 
-    public function beforeSave($insert)
-    {
-        if (!parent::beforeSave($insert)) {
-            return false;
-        }
-
-        $this->authKey = Yii::$app->security->generateRandomString();
-        $this->password = Yii::$app->security->generatePasswordHash($this->password);
-        $this->balance = 10000;
-        $this->roleId = Role::getIdByRole("buyer");
-
-        return true;
-    }
-
     /**
      * Gets query for [[BoughtItems]].
      *
@@ -92,7 +78,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         $newProfile->userId = $id;
         $newProfile->username = $username;
         $newProfile->website = '';
-        $newProfile->languageId = Language::getIdByLanguage("en-US");
+        $newProfile->languageId = Language::getIdByLanguage("ru-RU");
         $newProfile->wallet = "0x".Yii::$app->security->generateRandomString(40);
         return $newProfile->save(false);
     }

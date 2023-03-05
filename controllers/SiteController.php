@@ -14,6 +14,7 @@ use app\models\ContactForm;
 use app\models\Discount;
 use app\models\Language;
 use app\models\Registration;
+use app\models\Role;
 use yii\bootstrap5\ActiveForm;
 
 class SiteController extends Controller
@@ -42,6 +43,19 @@ class SiteController extends Controller
                 ],
             ],
         ];
+    }
+
+    public function beforeAction($action)
+    {
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+
+        if (Yii::$app->user->id > 0) {
+            Yii::$app->language = Profile::findOne(["userId" => Yii::$app->user->id])->language->language;
+        }
+
+        return true; // or false to not run the action
     }
 
     /**
@@ -88,6 +102,11 @@ class SiteController extends Controller
             if ($model->validate()) {
                 $user = new User();
                 $user->load($model->attributes, "");
+
+                $user->authKey = Yii::$app->security->generateRandomString();
+                $user->password = Yii::$app->security->generatePasswordHash($user->password);
+                $user->balance = 10000;
+                $user->roleId = Role::getIdByRole("buyer");
 
                 if ($model->friend_code) {
                     Discount::increaseDiscount($model->friend_code);

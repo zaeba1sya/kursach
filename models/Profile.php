@@ -10,6 +10,7 @@ use Yii;
  * @property int $id
  * @property int $userId
  * @property string $username
+ * @property string $avatar
  * @property string $website
  * @property int $languageId
  * @property string $wallet
@@ -33,9 +34,9 @@ class Profile extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['userId', 'username', 'website', 'languageId', 'wallet'], 'required'],
+            [['userId', 'username', 'languageId', 'wallet'], 'required'],
             [['userId', 'languageId'], 'integer'],
-            [['username', 'website', 'wallet'], 'string', 'max' => 255],
+            [['username', 'website', 'wallet', "avatar"], 'string', 'max' => 255],
             [['languageId'], 'exist', 'skipOnError' => true, 'targetClass' => Language::class, 'targetAttribute' => ['languageId' => 'id']],
             [['userId'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['userId' => 'id']],
         ];
@@ -50,6 +51,7 @@ class Profile extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'userId' => Yii::t('app', 'User ID'),
             'username' => Yii::t('app', 'Username'),
+            'avatar' => Yii::t("app", "Avatar"),
             'website' => Yii::t('app', 'Website'),
             'languageId' => Yii::t('app', 'Language ID'),
             'wallet' => Yii::t('app', 'Wallet'),

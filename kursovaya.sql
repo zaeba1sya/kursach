@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 21, 2023 at 02:23 AM
+-- Generation Time: Mar 06, 2023 at 01:48 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.9
 
@@ -36,17 +36,6 @@ CREATE TABLE `BoughtItem` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Collection`
---
-
-CREATE TABLE `Collection` (
-  `id` int UNSIGNED NOT NULL,
-  `collection` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `Discount`
 --
 
@@ -62,7 +51,8 @@ CREATE TABLE `Discount` (
 --
 
 INSERT INTO `Discount` (`id`, `discountHash`, `ownerId`, `invitedUsersCount`) VALUES
-(2, 'oI8DKnwNZ3', 12, 0);
+(10, 'Z_coh8evF1', 20, 0),
+(11, 'cKToTFYtYD', 21, 0);
 
 -- --------------------------------------------------------
 
@@ -80,8 +70,8 @@ CREATE TABLE `Language` (
 --
 
 INSERT INTO `Language` (`id`, `language`) VALUES
-(1, 'en-US'),
-(2, 'ru-RU');
+(1, 'ru-RU'),
+(2, 'en-US');
 
 -- --------------------------------------------------------
 
@@ -91,14 +81,38 @@ INSERT INTO `Language` (`id`, `language`) VALUES
 
 CREATE TABLE `Nft` (
   `id` int UNSIGNED NOT NULL,
-  `title` int NOT NULL,
-  `image` int NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `price` int NOT NULL,
   `amount` int NOT NULL,
-  `ownerId` int UNSIGNED NOT NULL,
-  `collectionId` int UNSIGNED NOT NULL
+  `ownerId` int UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `Nft`
+--
+
+INSERT INTO `Nft` (`id`, `title`, `image`, `description`, `price`, `amount`, `ownerId`) VALUES
+(7, 'NFT 1', '9StaF0UBJfih.gif', 'NFT #1', 1000, 55, 20),
+(8, 'NFT 2', 'appleB_map.gif', 'NFT #2', 500, 124, 20),
+(9, 'NFT 3', 'cactus.gif', 'NFT #3', 500, 32, 20),
+(10, 'NFT 4', 'dMqxHmPPA8fd.gif', 'NFT #3', 2000, 5, 20),
+(11, 'NFT 5', 'doge.gif', 'NFT #5', 600, 33, 21),
+(12, 'NFT 6', 'KITH_web.gif', 'NFT #6', 1000, 3, 21),
+(13, 'NFT 7', 'non-fungible-token-3.gif', 'NFT #7', 1500, 12, 21),
+(14, 'NFT 8', 'platy-punk-animated.gif', 'NFT #7', 100, 555, 21),
+(15, 'NFT 8', 'unnamed.gif', 'NFT #8', 745, 22, 21),
+(16, 'NFT 9', '02ba5e5eedbf48e993d37b288bc7aeb5.gif', 'NFT #9', 123, 55, 21),
+(17, 'NFT 10', 'IMG_0519.gif', 'NFT 10', 545, 32, 21),
+(18, 'NFT 11', 'non-fungible-token.gif', 'NFT #11', 867, 1234, 21),
+(19, 'NFT 12', 'p1_3232540_725882d6.gif', 'NFT #12', 867, 99, 21),
+(20, 'NFT 13', 'Paul-Rudd-Celery-Man-FIN.gif', 'NFT #13', 534, 123, 21),
+(21, 'NFT 14', 'Pennywise_Pixel_gif_1626509130150.gif', 'NFT #14', 678, 33, 21),
+(22, 'NFT 15', 'phazed-psychedelic-energy-hands-2-gif-1440.gif', 'NFT #15', 663, 123, 21),
+(23, 'NFT 16', 'pixel-nft-monkey-x10a6irgrf9wypab.gif', 'NFT #16', 868, 123, 21),
+(24, 'NFT 17', 'Sherlock+Toy+Face-high.gif', 'NFT #17', 774, 345, 21),
+(25, 'NFT 18', 'tumblr_354e7abc631ce1dcee4c3445788f167f_f8065203_1280.gif', 'NFT #18', 657, 665, 21);
 
 -- --------------------------------------------------------
 
@@ -110,6 +124,7 @@ CREATE TABLE `Profile` (
   `id` int UNSIGNED NOT NULL,
   `userId` int UNSIGNED NOT NULL,
   `username` varchar(255) NOT NULL,
+  `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `website` varchar(255) NOT NULL,
   `languageId` int UNSIGNED NOT NULL,
   `wallet` varchar(255) NOT NULL
@@ -119,8 +134,9 @@ CREATE TABLE `Profile` (
 -- Dumping data for table `Profile`
 --
 
-INSERT INTO `Profile` (`id`, `userId`, `username`, `website`, `languageId`, `wallet`) VALUES
-(3, 12, 'zaeba1sya', '', 1, '0x1Y5K4WrSvgDOw8-aG0X9cEewssn9PjC_Tgx7kqds');
+INSERT INTO `Profile` (`id`, `userId`, `username`, `avatar`, `website`, `languageId`, `wallet`) VALUES
+(11, 20, 'zaeba1sya', NULL, '', 1, '0xjDrxPQ-VtDsMZLWtegbrtTjhWgp_hwk1tyoj1A64'),
+(12, 21, 'CryptoMan332', 'dreamy-beaver-jay-z.jpg', 'https://asdfa.com', 1, '0xBxxUnxv0z5yOmuX-TtktDlGOckj_GHgR74zYLEbl');
 
 -- --------------------------------------------------------
 
@@ -134,6 +150,13 @@ CREATE TABLE `Purchases` (
   `userId` int UNSIGNED NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `Purchases`
+--
+
+INSERT INTO `Purchases` (`id`, `nftId`, `userId`, `timestamp`) VALUES
+(5, 7, 20, '2023-03-05 22:28:24');
 
 -- --------------------------------------------------------
 
@@ -175,7 +198,8 @@ CREATE TABLE `User` (
 --
 
 INSERT INTO `User` (`id`, `login`, `password`, `balance`, `roleId`, `authKey`) VALUES
-(12, 'admin123', '$2y$13$KQH0uzZIITF9o/y6Ve2k9O49aOsu/xKj2tpx6D6IuDGTRto.oxGfK', 10000, 2, '4rDzLRCj0MN_OL_6am32CJDxRM7ZPj1l');
+(20, 'admin123', '$2y$13$kdoZY.u5/Xd0AMDZW6ngweebJ/0ITaEiQ0iIZ3zN7vs7QdXL7FFSK', 11000, 2, 'T921uDCvxDBsgM5QeSiMipXdgVIO9wFw'),
+(21, 'crypto332', '$2y$13$Urjb0/aZZgZRWRt6gp.1hOH3gs8S8yaJzHw5rIR7F252UUFDXL.uy', 10000, 2, 'JLvZVjQ8dgLEFjXmAzfchfLnmAxDUbzJ');
 
 --
 -- Indexes for dumped tables
@@ -188,12 +212,6 @@ ALTER TABLE `BoughtItem`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nftId` (`nftId`),
   ADD KEY `ownerId` (`ownerId`);
-
---
--- Indexes for table `Collection`
---
-ALTER TABLE `Collection`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `Discount`
@@ -213,8 +231,7 @@ ALTER TABLE `Language`
 --
 ALTER TABLE `Nft`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `ownerId` (`ownerId`),
-  ADD KEY `collectionId` (`collectionId`);
+  ADD KEY `ownerId` (`ownerId`);
 
 --
 -- Indexes for table `Profile`
@@ -256,40 +273,34 @@ ALTER TABLE `BoughtItem`
   MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `Collection`
---
-ALTER TABLE `Collection`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `Discount`
 --
 ALTER TABLE `Discount`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `Language`
 --
 ALTER TABLE `Language`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=233;
 
 --
 -- AUTO_INCREMENT for table `Nft`
 --
 ALTER TABLE `Nft`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `Profile`
 --
 ALTER TABLE `Profile`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `Purchases`
 --
 ALTER TABLE `Purchases`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `Role`
@@ -301,7 +312,7 @@ ALTER TABLE `Role`
 -- AUTO_INCREMENT for table `User`
 --
 ALTER TABLE `User`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Constraints for dumped tables
@@ -324,8 +335,7 @@ ALTER TABLE `Discount`
 -- Constraints for table `Nft`
 --
 ALTER TABLE `Nft`
-  ADD CONSTRAINT `nft_ibfk_1` FOREIGN KEY (`ownerId`) REFERENCES `User` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `nft_ibfk_2` FOREIGN KEY (`collectionId`) REFERENCES `Collection` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `nft_ibfk_1` FOREIGN KEY (`ownerId`) REFERENCES `User` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `Profile`

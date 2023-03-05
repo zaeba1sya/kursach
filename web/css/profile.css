@@ -1,0 +1,33 @@
+.profile-view-wrapper {
+    padding: 2rem 15%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 7rem;
+}
+
+.user-avatar {
+    width: 100%; 
+    height: 30rem; 
+    border-radius: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.profile-form, .nft-form {
+    padding: 2rem 15%;
+}
+
+.profile-update-form, .nft-creation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: white;
+}
+
+@media screen and (max-width: 1400px) {
+    .profile-view-wrapper {
+        flex-direction: column !important;
+    }
+}

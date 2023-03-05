@@ -20,6 +20,18 @@ class Registration extends Model
     public $friend_code;
     public $rules;
 
+    public function attributeLabels()
+    {
+        return [
+            'username' => Yii::t('app', 'Username'),
+            'login' => Yii::t('app', 'Login'),
+            'password' => Yii::t('app', 'Password'),
+            'password_repeat' => Yii::t('app', 'Password_repeat'),
+            'friend_code' => Yii::t('app', 'Friend_code'),
+            'rules' => Yii::t('app', 'Rules'),
+        ];
+    }
+
 
 
     /**

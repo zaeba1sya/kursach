@@ -8,13 +8,12 @@ use Yii;
  * This is the model class for table "Nft".
  *
  * @property int $id
- * @property int $title
- * @property int $image
+ * @property string $title
+ * @property string $image
  * @property string $description
  * @property int $price
  * @property int $amount
  * @property int $ownerId
- * @property int $collectionId
  *
  * @property BoughtItem[] $boughtItems
  * @property Collection $collection
@@ -37,13 +36,14 @@ class Nft extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'image', 'description', 'price', 'amount', 'ownerId', 'collectionId'], 'required'],
-            [['title', 'image', 'price', 'amount', 'ownerId', 'collectionId'], 'integer'],
-            [['description'], 'string', 'max' => 255],
+            [['title', 'image', 'description', 'price', 'amount', 'ownerId'], 'required'],
+            [['price', 'amount', 'ownerId'], 'integer'],
+            [['description', 'title', 'image'], 'string', 'max' => 255],
             [['ownerId'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['ownerId' => 'id']],
-            [['collectionId'], 'exist', 'skipOnError' => true, 'targetClass' => Collection::class, 'targetAttribute' => ['collectionId' => 'id']],
         ];
     }
+
+    
 
     /**
      * {@inheritdoc}
@@ -58,7 +58,6 @@ class Nft extends \yii\db\ActiveRecord
             'price' => Yii::t('app', 'Price'),
             'amount' => Yii::t('app', 'Amount'),
             'ownerId' => Yii::t('app', 'Owner ID'),
-            'collectionId' => Yii::t('app', 'Collection ID'),
         ];
     }
 
@@ -70,16 +69,6 @@ class Nft extends \yii\db\ActiveRecord
     public function getBoughtItems()
     {
         return $this->hasMany(BoughtItem::class, ['nftId' => 'id']);
-    }
-
-    /**
-     * Gets query for [[Collection]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getCollection()
-    {
-        return $this->hasOne(Collection::class, ['id' => 'collectionId']);
     }
 
     /**
