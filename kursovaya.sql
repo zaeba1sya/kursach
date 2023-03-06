@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 06, 2023 at 01:48 AM
+-- Generation Time: Mar 06, 2023 at 10:38 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.9
 
@@ -51,8 +51,9 @@ CREATE TABLE `Discount` (
 --
 
 INSERT INTO `Discount` (`id`, `discountHash`, `ownerId`, `invitedUsersCount`) VALUES
-(10, 'Z_coh8evF1', 20, 0),
-(11, 'cKToTFYtYD', 21, 0);
+(10, 'Z_coh8evF1', 20, 1),
+(11, 'cKToTFYtYD', 21, 0),
+(12, 'IEHsWBXvrF', 22, 0);
 
 -- --------------------------------------------------------
 
@@ -95,12 +96,12 @@ CREATE TABLE `Nft` (
 
 INSERT INTO `Nft` (`id`, `title`, `image`, `description`, `price`, `amount`, `ownerId`) VALUES
 (7, 'NFT 1', '9StaF0UBJfih.gif', 'NFT #1', 1000, 55, 20),
-(8, 'NFT 2', 'appleB_map.gif', 'NFT #2', 500, 124, 20),
-(9, 'NFT 3', 'cactus.gif', 'NFT #3', 500, 32, 20),
-(10, 'NFT 4', 'dMqxHmPPA8fd.gif', 'NFT #3', 2000, 5, 20),
+(8, 'NFT 2', 'appleB_map.gif', 'NFT #2', 500, 123, 20),
+(9, 'NFT 3', 'cactus.gif', 'NFT #3', 500, 30, 20),
+(10, 'NFT 4', 'dMqxHmPPA8fd.gif', 'NFT #3', 2000, 4, 20),
 (11, 'NFT 5', 'doge.gif', 'NFT #5', 600, 33, 21),
 (12, 'NFT 6', 'KITH_web.gif', 'NFT #6', 1000, 3, 21),
-(13, 'NFT 7', 'non-fungible-token-3.gif', 'NFT #7', 1500, 12, 21),
+(13, 'NFT 7', 'non-fungible-token-3.gif', 'NFT #7', 1500, 11, 21),
 (14, 'NFT 8', 'platy-punk-animated.gif', 'NFT #7', 100, 555, 21),
 (15, 'NFT 8', 'unnamed.gif', 'NFT #8', 745, 22, 21),
 (16, 'NFT 9', '02ba5e5eedbf48e993d37b288bc7aeb5.gif', 'NFT #9', 123, 55, 21),
@@ -136,7 +137,8 @@ CREATE TABLE `Profile` (
 
 INSERT INTO `Profile` (`id`, `userId`, `username`, `avatar`, `website`, `languageId`, `wallet`) VALUES
 (11, 20, 'zaeba1sya', NULL, '', 1, '0xjDrxPQ-VtDsMZLWtegbrtTjhWgp_hwk1tyoj1A64'),
-(12, 21, 'CryptoMan332', 'dreamy-beaver-jay-z.jpg', 'https://asdfa.com', 1, '0xBxxUnxv0z5yOmuX-TtktDlGOckj_GHgR74zYLEbl');
+(12, 21, 'CryptoMan332', 'dreamy-beaver-jay-z.jpg', 'https://asdfa.com', 1, '0xBxxUnxv0z5yOmuX-TtktDlGOckj_GHgR74zYLEbl'),
+(13, 22, 'asdf', NULL, '', 1, '0xaBEfjmwR7fKjTogXFZfRJzsOsTVQoa9oGr4uMP-P');
 
 -- --------------------------------------------------------
 
@@ -156,7 +158,12 @@ CREATE TABLE `Purchases` (
 --
 
 INSERT INTO `Purchases` (`id`, `nftId`, `userId`, `timestamp`) VALUES
-(5, 7, 20, '2023-03-05 22:28:24');
+(5, 7, 20, '2023-03-05 22:28:24'),
+(6, 8, 21, '2023-03-06 19:14:11'),
+(7, 13, 21, '2023-03-06 19:15:40'),
+(8, 10, 21, '2023-03-06 19:16:25'),
+(9, 9, 20, '2023-03-06 19:35:24'),
+(10, 9, 20, '2023-03-06 19:35:40');
 
 -- --------------------------------------------------------
 
@@ -198,8 +205,9 @@ CREATE TABLE `User` (
 --
 
 INSERT INTO `User` (`id`, `login`, `password`, `balance`, `roleId`, `authKey`) VALUES
-(20, 'admin123', '$2y$13$kdoZY.u5/Xd0AMDZW6ngweebJ/0ITaEiQ0iIZ3zN7vs7QdXL7FFSK', 11000, 2, 'T921uDCvxDBsgM5QeSiMipXdgVIO9wFw'),
-(21, 'crypto332', '$2y$13$Urjb0/aZZgZRWRt6gp.1hOH3gs8S8yaJzHw5rIR7F252UUFDXL.uy', 10000, 2, 'JLvZVjQ8dgLEFjXmAzfchfLnmAxDUbzJ');
+(20, 'admin123', '$2y$13$kdoZY.u5/Xd0AMDZW6ngweebJ/0ITaEiQ0iIZ3zN7vs7QdXL7FFSK', 14400, 2, 'T921uDCvxDBsgM5QeSiMipXdgVIO9wFw'),
+(21, 'crypto332', '$2y$13$Urjb0/aZZgZRWRt6gp.1hOH3gs8S8yaJzHw5rIR7F252UUFDXL.uy', 9000, 2, 'JLvZVjQ8dgLEFjXmAzfchfLnmAxDUbzJ'),
+(22, 'asdf', '$2y$13$CgMffClO0u8KmIe/drYVDO/PzKY66Wui.K56pQs25h46o59/lmJ.S', 10000, 2, 'ZCrVa45zY9oMTZPGUSuDRZ3GDkfcd06D');
 
 --
 -- Indexes for dumped tables
@@ -276,7 +284,7 @@ ALTER TABLE `BoughtItem`
 -- AUTO_INCREMENT for table `Discount`
 --
 ALTER TABLE `Discount`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `Language`
@@ -294,13 +302,13 @@ ALTER TABLE `Nft`
 -- AUTO_INCREMENT for table `Profile`
 --
 ALTER TABLE `Profile`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `Purchases`
 --
 ALTER TABLE `Purchases`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `Role`
@@ -312,7 +320,7 @@ ALTER TABLE `Role`
 -- AUTO_INCREMENT for table `User`
 --
 ALTER TABLE `User`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Constraints for dumped tables
