@@ -1,5 +1,6 @@
 <?php
 
+use app\models\Discount;
 use app\models\Nft;
 use yii\bootstrap5\LinkPager;
 use yii\helpers\Html;
@@ -27,6 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'class' => LinkPager::class,
         ],
         'itemView' => function ($model, $key, $index, $widget) {
+            $discount = Discount::getUserDiscount();
+            $price = $model["price"] * (100 - $discount) / 100;
             return (
                 "<div class='nft-wrapper'>
                     <div class='nft-container'>
@@ -34,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class='nft-content'>
                             <h3 class='nft-heading'>{$model["title"]}</h3>
                             <p class='nft-item-description'>{$model["description"]}</p>
-                            <p class='nft-item-description'>".Yii::t("app", "Price")." <span class='amount'>{$model["price"]} RUB</span></p>
+                            <p class='nft-item-description'>".Yii::t("app", "Price")." <span class='amount'>{$price} RUB</span></p>
                             <a href='/market/view?id={$model['id']}'><button class='nft-btn-show-more' type='button'>".Yii::t("app", 'Show More')."</button></a>
                         </div>
                     </div>

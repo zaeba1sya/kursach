@@ -227,6 +227,7 @@ a {
 
 .nft-view-text {
     text-align: center;
+    color: white;
 }
 
 .nft-view, .table-striped > tbody > tr:nth-of-type(odd) > * {

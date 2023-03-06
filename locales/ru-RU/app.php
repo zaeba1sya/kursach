@@ -47,7 +47,8 @@ return [
     "Title" => "Название",
     "Image" => "Картинка",
     "Update Profile" => "Обновить Профиль",
-    "Referal Code" => "Реферальный код"
+    "Referal Code" => "Реферальный код",
+    "My Showcase" => "Моя витрина"
 ];
 
 ?>

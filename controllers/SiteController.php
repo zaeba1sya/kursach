@@ -111,13 +111,13 @@ class SiteController extends Controller
                 if ($model->friend_code) {
                     Discount::increaseDiscount($model->friend_code);
                 }
-                    if ($user->save(false)) {
-                        if ($user->createProfile($model->username, $user->id) && $user->createDiscount($user->id)) {
-                            Yii::$app->session->setFlash("Success", "User created");
-                            Yii::$app->user->login($user, 3600 * 30 * 24);
-                            return $this->goHome();
-                        }
+                if ($user->save(false)) {
+                    if ($user->createProfile($model->username, $user->id) && $user->createDiscount($user->id)) {
+                        Yii::$app->session->setFlash("Success", "User created");
+                        Yii::$app->user->login($user, 3600 * 30 * 24);
+                        return $this->goHome();
                     }
+                }
             } else {
                 Yii::$app->session->setFlash("Error", "Validation Failed");
             }

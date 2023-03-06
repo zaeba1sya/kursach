@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Discount;
 use app\models\Nft;
 use app\models\MarketSearch;
 use app\models\Profile;
@@ -151,12 +152,17 @@ class MarketController extends Controller
 
         $userBalance = $userData->balance;
         $ownerBalance = $ownerData->balance;
+        $oldAmount = $nftData->amount;
 
-        if ($userData->balance >= $nftData->price) {
-            $userData->balance = $userBalance - $nftData->price;
-            $ownerData->balance = $ownerBalance + $nftData->price;
+        $price = $nftData->price * (100 - Discount::getUserDiscount()) / 100;
 
-            if ($userData->update(false) && $ownerData->update(false)) {
+        if ($userData->balance >= $price) {
+            $userData->balance = $userBalance - $price;
+            $ownerData->balance = $ownerBalance + $price;
+
+            $nftData->amount = $oldAmount - 1;
+
+            if ($userData->update(false) && $ownerData->update(false) && $nftData->update(false)) {
                 $purchase->nftId = $nftData->id;
                 $purchase->userId = $userData->id;
                 if ($purchase->save(false)) {

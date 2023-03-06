@@ -1,5 +1,6 @@
 <?php
 
+use app\models\Discount;
 use app\models\Language;
 use app\models\Nft;
 use app\models\Purchases;
@@ -31,13 +32,15 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="view-buy-content">
                 <a href="<?= $profile->website ?>"><p class="view-amount"><?= Yii::t('app', 'My Website') ?></p></a>
                 <p class="view-price"><?= Yii::t('app', 'Language') ?>: <?= Language::findOne(['id' => $profile->languageId])->language ?></p>
-                <p class="view-price"><?= Yii::t('app', 'Referal Code') ?>: <?= User::findOne(['id' => Yii::$app->user->id])->authKey ?></p>
+                <p class="view-price"><?= Yii::t('app', 'Referal Code') ?>: <?= Discount::getUserCode(Yii::$app->user->id) ?></p>
             </div>
             <div>
                 <a href="/profile/updateprofile" class="btn btn-secondary"><?= Yii::t("app", "Update Profile") ?></a>
             </div>
         </div>
     </div>
+
+    <h1 class="nft-view-text"><?= Yii::t("app", 'My Showcase') ?></h1>
 
     <?= ListView::widget([
         'dataProvider' => $dataProvider,

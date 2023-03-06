@@ -60,6 +60,25 @@ class Discount extends \yii\db\ActiveRecord
         return $this->hasOne(User::class, ['id' => 'ownerId']);
     }
 
+    public static function getUserCode($id)
+    {
+        return static::findOne(["ownerId" => $id])->discountHash;
+    }
+
+    public static function getUserDiscount()
+    {
+        if (Yii::$app->user->id <= 0) {
+            return 0;
+        }
+        $discount = static::findOne(['ownerId' => Yii::$app->user->id])->invitedUsersCount;
+        if ($discount > 0 && $discount < 10) {
+            return 10;
+        } else {
+            return 15;
+        }
+        return 0;
+    }
+
     public static function increaseDiscount($code)
     {
         $discount = static::findOne(['discountHash' => $code]);
