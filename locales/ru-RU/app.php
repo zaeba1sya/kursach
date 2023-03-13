@@ -48,7 +48,10 @@ return [
     "Image" => "Картинка",
     "Update Profile" => "Обновить Профиль",
     "Referal Code" => "Реферальный код",
-    "My Showcase" => "Моя витрина"
+    "My Showcase" => "Моя витрина",
+    "Search by Name" => "Поиск по названи",
+    "Search" => "Поиск",
+    "Reset" => "Сбросить"
 ];
 
 ?>

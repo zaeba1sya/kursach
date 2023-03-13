@@ -21,6 +21,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <a href='/market/create' class='btn btn-secondary'>".Yii::t('app', 'Create NFT')."</a>
     </div>" : "" ?>
 
+    <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'itemOptions' => ['class' => 'my-item'],

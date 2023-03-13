@@ -15,7 +15,6 @@ $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="nft-view">
-
     <div class="nft-view-wrapper">
         <img style="width: 30rem; height: 30rem; border-radius: 15px;" src="../../web/images/nfts/<?php echo $model->image ?>" alt="">
         <div class="view-content-wrapper">
@@ -27,10 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="view-buy-content">
                 <p class="view-amount"><?php echo Yii::t('app', 'Amount') ?>: <?php echo $model->amount ?> <?php echo Yii::t('app', 'items') ?></p>
                 <p class="view-price"><?php echo Yii::t('app', 'Price') ?>: <?php echo $model["price"] * (100 - Discount::getUserDiscount()) / 100 ?> RUB</p>
-                <a href="/market/buy?id=<?= $model->id ?>"><button class="view-buy-button"><?php echo Yii::t('app', 'Buy NFT') ?></button></a>
+                <?php echo Yii::$app->user->id != Profile::findOne(["userId" => $model->ownerId])->userId ? '<a href="/market/buy?id=<?= $model->id ?>"><button class="view-buy-button">'.Yii::t("app", "Buy NFT").'</button></a>' : null ?>
             </div>
         </div>
     </div>
-    
-
 </div>

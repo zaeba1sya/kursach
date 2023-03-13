@@ -18,7 +18,8 @@ class MarketSearch extends Nft
     public function rules()
     {
         return [
-            [['id', 'title', 'image', 'price', 'amount', 'ownerId'], 'integer'],
+            [['title'], "string"],
+            [['id', 'image', 'price', 'amount', 'ownerId'], 'integer'],
             [['description'], 'safe'],
         ];
     }

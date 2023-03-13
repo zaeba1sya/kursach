@@ -15,25 +15,11 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
-
-    <?= $form->field($model, 'title') ?>
-
-    <?= $form->field($model, 'image') ?>
-
-    <?= $form->field($model, 'description') ?>
-
-    <?= $form->field($model, 'price') ?>
-
-    <?php // echo $form->field($model, 'amount') ?>
-
-    <?php // echo $form->field($model, 'ownerId') ?>
-
-    <?php // echo $form->field($model, 'collectionId') ?>
+    <?= $form->field($model, 'title')->label(Yii::t("app", "Search by Name")) ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-outline-secondary']) ?>
+        <?= Html::submitButton(Yii::t('app', Yii::t("app", 'Search')), ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('app', 'Reset'), "/market", ['class' => 'btn btn-outline-secondary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

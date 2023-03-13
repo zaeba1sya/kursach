@@ -247,6 +247,22 @@ a {
     font-size: 1.5rem;
 }
 
+.page-link {
+    background: transparent !important;
+}
+
+.control-label {
+    color: #fff !important;
+}
+
+.nft-search {
+    margin-bottom: 1rem;
+}
+
+.field-marketsearch-title {
+    margin-bottom: .5rem;
+}
+
 @media screen and (max-width: 867px) {
     .login-reg-sidebar {
         display: none;
